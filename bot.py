@@ -39,7 +39,7 @@ async def video(bot: MDISK,m: Message):
                     progress=progress_for_pyrogram,
                     progress_args=(
                         "Downloading ...",
-                        m.message,
+                        m,
                         c_time
                     )
                 )
