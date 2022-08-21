@@ -35,7 +35,7 @@ async def video(bot: MDISK,m: Message):
        try:
                 c_time = time.time()
                 file_dl_path = await bot.download_media(
-                    message=message.reply_to_message,
+                    message=m.reply_to_message,
                     file_name=f"mdisk_vudeo.mkv",
                     progress=progress_for_pyrogram,
                     progress_args=(
