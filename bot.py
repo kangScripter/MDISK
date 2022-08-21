@@ -30,11 +30,12 @@ async def video(bot: MDISK,m: Message):
         await m.reply_text("This Video Format not Supported!\nOnly send MP4 or MKV or WEBM.", quote=True)
         return  
     else:
+
        file_dl_path = None
        try:
                 c_time = time.time()
                 file_dl_path = await bot.download_media(
-                    message=media,
+                    message=message.reply_to_message,
                     file_name=f"mdisk_vudeo.mkv",
                     progress=progress_for_pyrogram,
  
