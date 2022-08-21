@@ -37,7 +37,7 @@ async def video(bot: MDISK,m: Message):
                 edit = await m.reply_text("Downloading Video ...", quote=True)
                 file_dl_path = await bot.download_media(
                     message=m.reply_to_message,
-                    file_name=f"mdisk_vudeo.mkv",
+                    file_name=f"/root",
                     progress=progress_for_pyrogram,
                     progress_args=(
                         "Downloading ...",
