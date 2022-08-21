@@ -38,7 +38,11 @@ async def video(bot: MDISK,m: Message):
                     message=message.reply_to_message,
                     file_name=f"mdisk_vudeo.mkv",
                     progress=progress_for_pyrogram,
- 
+                    progress_args=(
+                        "Downloading ...",
+                        m.reply_text,
+                        c_time
+                    )
                 )
        except Exception as downloadErr:
                 print(f"Failed to Download File!\nError")
