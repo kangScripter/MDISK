@@ -20,7 +20,7 @@ async def start(bot: MDISK,m: Message):
         quote=True,
         )
 
-@MDISK.on_message(enums.ChatType.PRIVATE & (enums.MessagesFilter.VIDEO | enums.MessagesFilter.DOCUMENT))   
+@MDISK.on_message(filters.private & (filters.document | filters.video))   
 async def video(bot: MDISK,m: Message):
     media = m.video or m.document
     if media.file_name is None:
@@ -34,7 +34,7 @@ async def video(bot: MDISK,m: Message):
        try:
                 c_time = time.time()
                 file_dl_path = await bot.download_media(
-                    message='downloading',
+                    message=media,
                     file_name=f"mdisk_vudeo.mkv",
                     progress=progress_for_pyrogram,
  
