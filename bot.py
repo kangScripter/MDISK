@@ -1,5 +1,5 @@
 import os
-from pyrogram import Client, filters
+from pyrogram import Client, filters,enums
 import time
 from pyrogram.errors import FloodWait, UserNotParticipant, MessageNotModified
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery, InputMediaPhoto
@@ -20,7 +20,7 @@ async def start(bot: MDISK,m: Message):
         quote=True,
         )
 
-@MDISK.on_message(filters.private & (filters.video | filters.document))   
+@MDISK.on_message(enums.ChatType.PRIVATE & (enums.MessagesFilter.VIDEO | enums.MessagesFilter.DOCUMENT))   
 async def video(bot: MDISK,m: Message):
     media = m.video or m.document
     if media.file_name is None:
